@@ -167,7 +167,7 @@ Client.prototype.getDatetime = function getDateTime (callback) {
  * Req:  A5 00 00 00 01 40 00 02 00 19 8E F3
  * Res:  A5 00 00 00 01 C0 01 00 00 AF 65
  */
-Client.prototype.getUsers = function getUsers (type, callback) {
+Client.prototype.getAttendance = function getAttendance (type, callback) {
 	var
 		request,
 		typeCmd,
@@ -177,7 +177,7 @@ Client.prototype.getUsers = function getUsers (type, callback) {
 
 	typeCmd = (type == 'new') ? newRecords : allRecords;
 
-	request = buildRequest( this.deviceId, 40, [typeCmd,19] );
+	request = buildRequest( this.deviceId, 40, [typeCmd,19] ); // 25 max
 	console.log(request);
 };
 
